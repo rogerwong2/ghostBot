@@ -1,2 +1,2 @@
 # ghostBot
-a simple coc bot
+a simple coc bot, unfinished
