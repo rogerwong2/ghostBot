@@ -14,12 +14,12 @@ public class SystemConstant {
 	/**
 	 * window width supported
 	 */
-	public static final int DEFAULT_X=0;
+	public static final int DEFAULT_X=860;
 	/**
 	 * window height supported
 	 */
-	public static final int DEFAULT_Y=0;
-	
+	public static final int DEFAULT_Y=720;
+	public static final String	BS_WINDOW_NAME	= "BlueStacks App Player";
 	public static final int		WM_NULL				= 0x000;
 	public static final int		WM_COMMAND			= 0x111;
 	public static final int		WM_LBUTTONDOWN		= 0x201;

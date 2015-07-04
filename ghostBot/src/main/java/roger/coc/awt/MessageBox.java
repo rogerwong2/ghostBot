@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 public class MessageBox {
 	
 	public static boolean confirmationBox(String msg, String title) {
-		int result = JOptionPane.showConfirmDialog(null, msg, title, JOptionPane.YES_NO_OPTION);
+		int result = JOptionPane.showConfirmDialog(null, msg, title, JOptionPane.YES_OPTION);
 
 		if (result == JOptionPane.YES_OPTION) {
 			return true;
