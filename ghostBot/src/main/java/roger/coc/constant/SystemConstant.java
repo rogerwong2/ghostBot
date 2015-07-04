@@ -5,6 +5,7 @@ package roger.coc.constant;
  * system constant
  */
 public class SystemConstant {
+
 	/**
 	 *  config path
 	 */
@@ -18,5 +19,19 @@ public class SystemConstant {
 	 * window height supported
 	 */
 	public static final int DEFAULT_Y=0;
+	
+	public static final int		WM_NULL				= 0x000;
+	public static final int		WM_COMMAND			= 0x111;
+	public static final int		WM_LBUTTONDOWN		= 0x201;
+	public static final int		WM_LBUTTONUP		= 0x202;
+	public static final int		WM_LBUTTONDBLCLK	= 0x203;
+	public static final int		WM_RBUTTONDOWN		= 0x204;
+	public static final int		WM_RBUTTONUP		= 0x205;
+	public static final int		WM_RBUTTONDBLCLK	= 0x206;
+	public static final int		WM_KEYDOWN			= 0x100;
+	public static final int		WM_KEYUP			= 0x101;
+	public static final int		WM_MOUSEWHEEL		= 0x20A;
+	public static final int		VK_CONTROL			= 0x11;
+	public static final int		VK_DOWN				= 0x28;
 	
 }

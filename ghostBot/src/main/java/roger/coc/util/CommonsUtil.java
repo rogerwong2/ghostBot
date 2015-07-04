@@ -17,5 +17,12 @@ public class CommonsUtil {
 		}
 	}
 	
-	
+	public static void safeSleep(long s)
+	{
+		try {
+			Thread.sleep(s);
+		} catch (InterruptedException e) {
+			
+		}
+	}
 }
