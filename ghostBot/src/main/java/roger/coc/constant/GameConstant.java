@@ -9,8 +9,74 @@ import java.awt.Color;
 public class GameConstant {
 
 	//===================button====================
-	
-	
+	public static final int[] BTN_TROOP_OPEN=new int[]{40,527};
+	public static final int[] BTN_TROOP_CLOSE=new int[]{733,115};
+	public static final int[] BTN_TROOP_REINFSMENT=new int[]{663,336};
+	public static final int[] BTN_TROOP_OVERVIEW=new int[]{155,554};
+	public static final int[][] BTN_TROOP_BRARACK=new int[][]{{256,554},{315,554},{374,554},{433,554}};
+	public static final int[][] BTN_TROOP_DARKBRARACK=new int[][]{{519,554},{583,554}};
+	public static final int[] BTN_TROOP_SPELLFAC=new int[]{665,554};
+	public static final int[] BTN_TROOP_DARKSPELLFAC=new int[]{722,554};
+	public static final int[] BTN_REINFSMENT_CANCEL=new int[]{345,229};
+	public static final int[] BTN_REINFSMENT_CONFIRM=new int[]{523,229};
+	public static final int[] BTN_REINFSMENT_INPUT=new int[]{434,150};
+	public static final int[] BTN_TRAIN_SLOT1=new int[]{227,351};
+	public static final int[] BTN_TRAIN_SLOT2=new int[]{332,351};
+	public static final int[] BTN_TRAIN_SLOT3=new int[]{436,351};
+	public static final int[] BTN_TRAIN_SLOT4=new int[]{542,351};
+	public static final int[] BTN_TRAIN_SLOT5=new int[]{648,351};
+	public static final int[] BTN_TRAIN_SLOT6=new int[]{227,450};
+	public static final int[] BTN_TRAIN_SLOT7=new int[]{332,450};
+	public static final int[] BTN_TRAIN_SLOT8=new int[]{436,450};
+	public static final int[] BTN_TRAIN_SLOT9=new int[]{542,450};
+	public static final int[] BTN_TRAIN_SLOT10=new int[]{648,450};
+	public static final int[] BTN_BRARACK_BARBARIAN=BTN_TRAIN_SLOT1;
+	public static final int[] BTN_BRARACK_ARCHER=BTN_TRAIN_SLOT2;
+	public static final int[] BTN_BRARACK_GIANT=BTN_TRAIN_SLOT3;
+	public static final int[] BTN_BRARACK_GOBLIN=BTN_TRAIN_SLOT4;
+	public static final int[] BTN_BRARACK_BOMBER=BTN_TRAIN_SLOT5;
+	public static final int[] BTN_BRARACK_BALLON=BTN_TRAIN_SLOT6;
+	public static final int[] BTN_BRARACK_WIZARD=BTN_TRAIN_SLOT7;
+	public static final int[] BTN_BRARACK_HELLER=BTN_TRAIN_SLOT8;
+	public static final int[] BTN_BRARACK_DRAGON=BTN_TRAIN_SLOT9;
+	public static final int[] BTN_BRARACK_PEKKA=BTN_TRAIN_SLOT10;
+	public static final int[] BTN_DARKBAR_MINION=BTN_TRAIN_SLOT1;
+	public static final int[] BTN_DARKBAR_HOGRIDER=BTN_TRAIN_SLOT2;
+	public static final int[] BTN_DARKBAR_VALKYRIE=BTN_TRAIN_SLOT3;
+	public static final int[] BTN_DARKBAR_GOLEM=BTN_TRAIN_SLOT4;
+	public static final int[] BTN_DARKBAR_WITCH=BTN_TRAIN_SLOT5;
+	public static final int[] BTN_DARKBAR_LAVAHOUND=BTN_TRAIN_SLOT6;
+	public static final int[] BTN_SPELLFAC_LIGHTING=BTN_TRAIN_SLOT1;
+	public static final int[] BTN_SPELLFAC_HEALING=BTN_TRAIN_SLOT2;
+	public static final int[] BTN_SPELLFAC_RAGE=BTN_TRAIN_SLOT3;
+	public static final int[] BTN_SPELLFAC_JUMP=BTN_TRAIN_SLOT4;
+	public static final int[] BTN_SPELLFAC_FREEZE=BTN_TRAIN_SLOT5;
+	public static final int[] BTN_DARKSPELLFAC_LIGHTING=BTN_TRAIN_SLOT1;
+	public static final int[] BTN_DARKSPELLFAC_HEALING=BTN_TRAIN_SLOT2;
+	public static final int[] BTN_DARKSPELLFAC_RAGE=BTN_TRAIN_SLOT3;
+	public static final int[] BTN_CHAT=new int[]{20,350};
+	public static final int[] BTN_ATTACK_OPEN=new int[]{70,610};
+	public static final int[] BTN_ATTACK_FINDMATCH=new int[]{227,507};
+	public static final int[] BTN_ATTACK_CANCEL=new int[]{823,31};
+	public static final int[] BTN_ATTACK_ENDBATTLE=new int[]{74,539};
+	public static final int[] BTN_ATTACK_ENDBATTLE_OK=new int[]{514,395};
+	public static final int[] BTN_ATTACK_ENDBATTLE_CANCEL=new int[]{332,395};
+	public static final int[] BTN_ATTACK_RETURNHOME=new int[]{429,544};
+	public static final int[] BTN_ATTACK_SLOT1=new int[]{71,619};
+	public static final int[] BTN_ATTACK_SLOT2=new int[]{148,619};
+	public static final int[] BTN_ATTACK_SLOT3=new int[]{215,619};
+	public static final int[] BTN_ATTACK_SLOT4=new int[]{290,619};
+	public static final int[] BTN_ATTACK_SLOT5=new int[]{360,619};
+	public static final int[] BTN_ATTACK_SLOT6=new int[]{430,619};
+	public static final int[] BTN_ATTACK_SLOT7=new int[]{500,619};
+	public static final int[] BTN_ATTACK_SLOT8=new int[]{570,619};
+	public static final int[] BTN_ATTACK_SLOT9=new int[]{640,619};
+	public static final int[] BTN_ATTACK_SLOT10=new int[]{710,619};
+	public static final int[] BTN_ATTACK_SLOT11=new int[]{780,619};
+	public static final int[] POS_ATTACK_UP=new int[]{430,43};
+	public static final int[] POS_ATTACK_DOWN=new int[]{430,561};
+	public static final int[] POS_ATTACK_LEFT=new int[]{61,315};
+	public static final int[] POS_ATTACK_RIGHT=new int[]{788,315};
 	
 	//===================number====================
 	private static final int[][]	OFFSET_ZERO				= new int[][] { { 6, 4 }, { 7, 7 }, { 10, 13 } };

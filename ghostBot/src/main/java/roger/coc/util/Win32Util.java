@@ -29,6 +29,20 @@ public class Win32Util {
 		User32.INSTANCE.SendMessage(handler, SystemConstant.WM_LBUTTONUP, 0x00000000, lParam);
 	}
 	
+	public static void ctrlV()
+	{
+		int lParam = 0x00000001 | (0x50 /*scancode*/<< 16) | 0x01000000 /*extended*/;
+		WPARAM wparam = new WinDef.WPARAM(SystemConstant.VK_CONTROL);
+		WPARAM wparamv = new WinDef.WPARAM(SystemConstant.VK_V);
+		LPARAM lparamDown = new WinDef.LPARAM(lParam);
+		LPARAM lparamUp = new WinDef.LPARAM(lParam | 1 << 30 | 1 << 31);
+		User32.INSTANCE.PostMessage(handler, SystemConstant.WM_KEYDOWN, wparam, lparamDown);
+		User32.INSTANCE.PostMessage(handler, SystemConstant.WM_KEYDOWN, wparamv, lparamDown);
+		User32.INSTANCE.PostMessage(handler, SystemConstant.WM_KEYUP, wparamv, lparamUp);
+		User32.INSTANCE.PostMessage(handler, SystemConstant.WM_KEYUP, wparam, lparamUp);
+	
+	}
+	
 	public static void zoomUp()
 	{
 		int lParam = 0x00000001 | (0x50 /*scancode*/<< 16) | 0x01000000 /*extended*/;
@@ -37,7 +51,7 @@ public class Win32Util {
 		LPARAM lparamDown = new WinDef.LPARAM(lParam);
 		LPARAM lparamUp = new WinDef.LPARAM(lParam | 1 << 30 | 1 << 31);
 
-		for (int i = 0; i < 14; i++) {
+		for (int i = 0; i < 10; i++) {
 			while (isCtrlKeyDown()) {
 			}
 			User32.INSTANCE.PostMessage(handler, SystemConstant.WM_KEYDOWN, wparam, lparamDown);
@@ -45,6 +59,13 @@ public class Win32Util {
 			CommonsUtil.safeSleep(1000);
 		}
 	}
+	
+	public static void setText(String text)
+	{
+		CommonsUtil.putTextIntoClipBoard("ghostBot test,anything is ok!^_^ ÖÐÎÄ");
+		Win32Util.ctrlV();
+	}
+	
 	private static boolean isCtrlKeyDown() {
 		return User32.INSTANCE.GetKeyState(SystemConstant.VK_CONTROL) < 0;
 	}

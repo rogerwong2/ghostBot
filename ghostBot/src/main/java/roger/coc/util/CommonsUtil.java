@@ -1,5 +1,10 @@
 package roger.coc.util;
 
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
+import java.awt.datatransfer.Transferable;
+
 /**
  * @author zirui.wzr
  * other util
@@ -24,5 +29,13 @@ public class CommonsUtil {
 		} catch (InterruptedException e) {
 			
 		}
+	}
+	
+	public static void putTextIntoClipBoard(String str)
+	{
+		 Clipboard clip = Toolkit.getDefaultToolkit().getSystemClipboard();
+		 Transferable tText = new StringSelection(str);
+         clip.setContents(tText, null);
+				 
 	}
 }

@@ -33,5 +33,8 @@ public class SystemConstant {
 	public static final int		WM_MOUSEWHEEL		= 0x20A;
 	public static final int		VK_CONTROL			= 0x11;
 	public static final int		VK_DOWN				= 0x28;
+	public static final int     VK_V 				= 0x56;
+	public static final int 	WM_SETTEXT 			= 0x000C;
+	public static final int 	WM_PASTE     		= 0x0302;
 	
 }

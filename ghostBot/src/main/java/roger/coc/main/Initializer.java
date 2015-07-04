@@ -55,7 +55,7 @@ public class Initializer {
 			Advapi32Util.registrySetIntValue(key.getValue(), "GuestWidth", SystemConstant.DEFAULT_X );
 			Advapi32Util.registrySetIntValue(key.getValue(), "GuestHeight", SystemConstant.DEFAULT_Y );
 			Advapi32Util.registrySetIntValue(key.getValue(), "FullScreen", 0);
-			
+			LogUtil.log("Only resolution "+SystemConstant.DEFAULT_X+"*"+SystemConstant.DEFAULT_Y+" is supported, but your resolution is "+w1+"*"+h1+". But this bot has change the resolution to correct value, please restart your bluestacks!");
 			MessageBox.confirmationBox("Only resolution "+SystemConstant.DEFAULT_X+"*"+SystemConstant.DEFAULT_Y+" is supported, but your resolution is "+w1+"*"+h1+". But this bot has change the resolution to correct value, please restart your bluestacks!", "resolution error");
 
 		}  catch (Exception e) {
