@@ -1,7 +1,7 @@
 package roger.coc.main;
 
 import roger.coc.config.ConfigManager;
-import roger.coc.config.GlobalConfig;
+import roger.coc.config.dataobject.GlobalConfig;
 import roger.coc.util.CommonsUtil;
 import roger.coc.util.LogUtil;
 

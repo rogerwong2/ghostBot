@@ -1,5 +1,7 @@
 package roger.coc.config;
 
+import roger.coc.config.dataobject.GlobalConfig;
+
 /**
  * @author zirui.wzr
  * get/update bot config

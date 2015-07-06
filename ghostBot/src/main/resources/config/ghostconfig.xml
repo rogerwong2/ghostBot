@@ -100,7 +100,7 @@
 				<value>put 0.5 archer on 11,12</value>
 				<value>put 1 barbarianking on 0,0</value>
 				<value>put 1 archerqueen on 0,0</value>
-				<value>put all barbarian on 0,0</value>
+				<value>put -1 barbarian on 0,0</value>
 				<value>sleep 5000</value>
 				<value>use barbarianking</value>
 				<value>use archerqueue</value>
