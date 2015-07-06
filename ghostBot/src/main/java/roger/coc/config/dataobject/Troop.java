@@ -1,7 +1,10 @@
 package roger.coc.config.dataobject;
 
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 import org.w3c.dom.Node;
+
+import roger.coc.config.ConfigManager;
 
 public class Troop implements IBuild{
 	private String troop;
@@ -30,13 +33,17 @@ public class Troop implements IBuild{
 	public void setNum(int num) {
 		this.num = num;
 	}
-	public Node getDocumentFromNode() {
-		// TODO Auto-generated method stub
-		return null;
+	public Element getNode() {
+		Document dc=ConfigManager.db.newDocument();
+		Element root=dc.createElement("common");
+		root.appendChild(ConfigManager.getElement("troop", troop));
+		root.appendChild(ConfigManager.getElement("num", String.valueOf(num)));
+		return root;
 	}
-	public void parseDocument(Node document) {
-		// TODO Auto-generated method stub
-		
+	public void parseNode(Element node) {
+		troop=node.getElementsByTagName("troop").item(0).getNodeValue();
+		num=Integer.valueOf(node.getElementsByTagName("num").item(0).getNodeValue());
 	}
+
 
 }

@@ -3,6 +3,8 @@ package roger.coc.config.dataobject;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
+import roger.coc.config.ConfigManager;
+
 public class Train implements IBuild{
 	public static final String TRAIN_TYPE_BARRACKLOOP="barrack-loop";
 	private String type;
@@ -11,8 +13,8 @@ public class Train implements IBuild{
 	private Brarack brarack2;
 	private Brarack brarack3;
 	private Brarack brarack4;
-	private DarkBrarack darkbararack1;
-	private DarkBrarack darkbararack2;
+	private DarkBrarack darkbrarack1;
+	private DarkBrarack darkbrarack2;
 	private SpellFac spellFac;
 	private DarkSpellFac darkSpellFac;
 	/**
@@ -91,25 +93,25 @@ public class Train implements IBuild{
 	 * @return the darkbararack1
 	 */
 	public DarkBrarack getDarkbararack1() {
-		return darkbararack1;
+		return darkbrarack1;
 	}
 	/**
 	 * @param darkbararack1 the darkbararack1 to set
 	 */
 	public void setDarkbararack1(DarkBrarack darkbararack1) {
-		this.darkbararack1 = darkbararack1;
+		this.darkbrarack1 = darkbararack1;
 	}
 	/**
 	 * @return the darkbararack2
 	 */
 	public DarkBrarack getDarkbararack2() {
-		return darkbararack2;
+		return darkbrarack2;
 	}
 	/**
 	 * @param darkbararack2 the darkbararack2 to set
 	 */
 	public void setDarkbararack2(DarkBrarack darkbararack2) {
-		this.darkbararack2 = darkbararack2;
+		this.darkbrarack2 = darkbararack2;
 	}
 	/**
 	 * @return the spellFac
@@ -136,11 +138,40 @@ public class Train implements IBuild{
 		this.darkSpellFac = darkSpellFac;
 	}
 	public Element getNode() {
-		// TODO Auto-generated method stub
-		return null;
+		Document dc=ConfigManager.db.newDocument();
+		Element root=dc.createElement("train");
+		root.appendChild(ConfigManager.getElement("type", type));
+		root.appendChild(condition.getNode());
+		root.appendChild(brarack1.getNode());
+		root.appendChild(brarack2.getNode());
+		root.appendChild(brarack3.getNode());
+		root.appendChild(brarack4.getNode());
+		root.appendChild(darkbrarack1.getNode());
+		root.appendChild(darkbrarack2.getNode());
+		root.appendChild(spellFac.getNode());
+		root.appendChild(darkSpellFac.getNode());
+		return root;
 	}
 	public void parseNode(Element node) {
-		// TODO Auto-generated method stub
+		type=node.getElementsByTagName("type").item(0).getNodeValue();
+		condition=new AttackCondition();
+		condition.parseNode((Element)node.getElementsByTagName("attack-condition").item(0));
+		brarack1=new Brarack();
+		brarack2=new Brarack();
+		brarack3=new Brarack();
+		brarack4=new Brarack();
+		brarack1.parseNode((Element)node.getElementsByTagName("brarack").item(0));
+		brarack2.parseNode((Element)node.getElementsByTagName("brarack").item(1));
+		brarack3.parseNode((Element)node.getElementsByTagName("brarack").item(2));
+		brarack4.parseNode((Element)node.getElementsByTagName("brarack").item(3));
+		darkbrarack1=new DarkBrarack();
+		darkbrarack2=new DarkBrarack();
+		darkbrarack1.parseNode((Element)node.getElementsByTagName("darkbrarack").item(0));
+		darkbrarack2.parseNode((Element)node.getElementsByTagName("darkbrarack").item(1));
+		spellFac=new SpellFac();
+		spellFac.parseNode((Element)node.getElementsByTagName("spellFac").item(0));
+		darkSpellFac=new DarkSpellFac();
+		darkSpellFac.parseNode((Element)node.getElementsByTagName("darkspellfac").item(0));
 		
 	}
 

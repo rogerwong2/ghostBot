@@ -4,18 +4,32 @@ import java.util.List;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+
+import roger.coc.config.ConfigManager;
 
 public class Attack implements IBuild{
 
 	private List<Strategy> strategyList;
 	
 	public Element getNode() {
-		// TODO Auto-generated method stub
-		return null;
+		Document dc=ConfigManager.db.newDocument();
+		Element root=dc.createElement("attack");
+		for(Strategy stra:strategyList)
+		{
+			root.appendChild(stra.getNode());
+		}
+		return root;
 	}
 
 	public void parseNode(Element node) {
-		// TODO Auto-generated method stub
+		NodeList nodeList=node.getElementsByTagName("strategy");
+		for(int i=0;i<=nodeList.getLength()-1;i++)
+		{
+			Strategy stra=new Strategy();
+			stra.parseNode((Element) nodeList.item(i));
+			strategyList.add(stra);
+		}
 		
 	}
 

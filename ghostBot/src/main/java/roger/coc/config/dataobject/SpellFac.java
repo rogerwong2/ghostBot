@@ -3,6 +3,10 @@ package roger.coc.config.dataobject;
 import java.util.List;
 
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+
+import roger.coc.config.ConfigManager;
 
 public class SpellFac implements IBuild{
 	private List<Spell> spellList;
@@ -21,13 +25,27 @@ public class SpellFac implements IBuild{
 		this.spellList = spellList;
 	}
 
-	public Document getDocumentFromNode() {
-		// TODO Auto-generated method stub
-		return null;
+	public Element getNode() {
+		Document dc=ConfigManager.db.newDocument();
+		Element root=dc.createElement("spellfac");
+		for(Spell spell:spellList)
+		{
+			root.appendChild(spell.getNode());
+		}
+		return root;
 	}
 
-	public void parseDocument(Document document) {
-		// TODO Auto-generated method stub
+	public void parseNode(Element node) {
+		NodeList nodeList=node.getElementsByTagName("spell");
+		for(int i=0;i<=nodeList.getLength()-1;i++)
+		{
+			Element e=(Element) nodeList.item(i);
+			Spell spell=new Spell();
+			spell.parseNode(e);
+			spellList.add(spell);
+		}
 		
 	}
+
+
 }

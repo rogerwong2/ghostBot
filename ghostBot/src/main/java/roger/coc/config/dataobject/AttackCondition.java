@@ -1,6 +1,11 @@
 package roger.coc.config.dataobject;
 
-public class AttackCondition {
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+
+import roger.coc.config.ConfigManager;
+
+public class AttackCondition implements IBuild{
 	private int troopMin;
 	private boolean hasBk;
 	private boolean hasAq;
@@ -52,5 +57,20 @@ public class AttackCondition {
 	 */
 	public void setSpellMin(int spellMin) {
 		this.spellMin = spellMin;
+	}
+	public Element getNode() {
+		Document dc=ConfigManager.db.newDocument();
+		Element root=dc.createElement("common");
+		root.appendChild(ConfigManager.getElement("troopMin",String.valueOf(troopMin)));
+		root.appendChild(ConfigManager.getElement("spellMin", String.valueOf(spellMin)));
+		root.appendChild(ConfigManager.getElement("hasBk", String.valueOf(hasBk)));
+		root.appendChild(ConfigManager.getElement("hasAq", String.valueOf(hasAq)));
+		return root;
+	}
+	public void parseNode(Element node) {
+		troopMin=Integer.valueOf(node.getElementsByTagName("troopMin").item(0).getNodeValue());
+		spellMin=Integer.valueOf(node.getElementsByTagName("spellMin").item(0).getNodeValue());
+		hasBk=Boolean.valueOf(node.getElementsByTagName("hasBk").item(0).getNodeValue());
+		hasAq=Boolean.valueOf(node.getElementsByTagName("hasAq").item(0).getNodeValue());
 	}
 }

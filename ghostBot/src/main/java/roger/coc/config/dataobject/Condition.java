@@ -3,6 +3,7 @@ package roger.coc.config.dataobject;
 import java.util.Map;
 
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 
 import com.google.common.collect.Maps;
 
@@ -16,13 +17,14 @@ public class Condition implements IBuild{
 	private double elixir;
 	private double darkElixir;
 	private Map<String,String> otherInfo=Maps.newHashMap();
-	public Document getDocumentFromNode() {
+	public Element getNode() {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	public void parseDocument(Document document) {
+	public void parseNode(Element node) {
 		// TODO Auto-generated method stub
 		
 	}
+	
 	
 }
