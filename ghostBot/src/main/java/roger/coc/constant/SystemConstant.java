@@ -9,7 +9,7 @@ public class SystemConstant {
 	/**
 	 *  config path
 	 */
-	public static final String CONFIG_PATH="/config/config.ini";
+	public static final String CONFIG_PATH="/config/ghostconfig.xml";
 	
 	/**
 	 * window width supported
@@ -36,5 +36,4 @@ public class SystemConstant {
 	public static final int     VK_V 				= 0x56;
 	public static final int 	WM_SETTEXT 			= 0x000C;
 	public static final int 	WM_PASTE     		= 0x0302;
-	
 }

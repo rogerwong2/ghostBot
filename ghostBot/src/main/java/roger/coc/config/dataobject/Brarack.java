@@ -2,8 +2,10 @@ package roger.coc.config.dataobject;
 
 import java.util.List;
 
+import com.google.common.collect.Lists;
+
 public class Brarack {
-	private List<Troop> troops;
+	private List<Troop> troops=Lists.newArrayList();
 
 	/**
 	 * @return the troops

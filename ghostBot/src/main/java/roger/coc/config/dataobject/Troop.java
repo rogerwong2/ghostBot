@@ -1,6 +1,9 @@
 package roger.coc.config.dataobject;
 
-public class Troop {
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+
+public class Troop implements IBuild{
 	private String troop;
 	private int num;
 	/**
@@ -27,4 +30,13 @@ public class Troop {
 	public void setNum(int num) {
 		this.num = num;
 	}
+	public Node getDocumentFromNode() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public void parseDocument(Node document) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

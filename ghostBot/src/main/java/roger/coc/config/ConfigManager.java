@@ -1,22 +1,75 @@
 package roger.coc.config;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.PrintWriter;
+import java.net.URL;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+
+import roger.coc.config.dataobject.Common;
 import roger.coc.config.dataobject.GlobalConfig;
+import roger.coc.constant.SystemConstant;
+import roger.coc.util.LogUtil;
 
 /**
  * @author zirui.wzr
  * get/update bot config
  */
 public class ConfigManager {
-	
+
+	public static DocumentBuilder db;
+	private static Document dc;
+	static
+	{
+		try
+		{
+			 db=DocumentBuilderFactory.newInstance().newDocumentBuilder();
+			 dc=db.newDocument();
+		}
+		catch(Exception e)
+		{
+			LogUtil.log("ConfigManager init fail");
+		}
+	}
 	private static GlobalConfig config;
 	/**
 	 * write config to hard disk
 	 * @param congif
 	 * @return
 	 */
-	public static boolean updateConfig(GlobalConfig congif)
+	public static boolean updateConfig(GlobalConfig config)
 	{
-		return true;
+		  Element element=config.getNode();
+          Document document = db.newDocument();
+          document.appendChild(element); 
+          try {
+        	  TransformerFactory tf = TransformerFactory.newInstance();
+              Transformer transformer = tf.newTransformer();
+              DOMSource source = new DOMSource(document);
+              transformer.setOutputProperty(OutputKeys.ENCODING, "gb2312");
+              transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+             URL url= System.class.getClassLoader().getResource(SystemConstant.CONFIG_PATH);
+              PrintWriter pw = new PrintWriter(new FileOutputStream(url.getPath()+url.getFile()));
+              StreamResult result = new StreamResult(pw);
+              transformer.transform(source, result);
+              LogUtil.log("生成配置文件成功");
+          } catch (Exception e)
+          {
+        	  LogUtil.log("生成配置文件失败，"+e.getCause());
+          }
+          return true;
 	}
 	
 	
@@ -26,7 +79,19 @@ public class ConfigManager {
 	 */
 	public static boolean refreshConfig()
 	{
-		return true;
+		try
+		{
+	      Document document=db.parse(System.class.getClassLoader().getResourceAsStream(SystemConstant.CONFIG_PATH));//把文件解析成DOCUMENT类
+	      GlobalConfig config=new GlobalConfig();
+	      //set name
+	      config.parseNode(document.getDocumentElement()); 
+	      return true;
+		}
+		catch(Exception e)
+		{
+			LogUtil.log("parse config file fail,"+e.getMessage());
+			return false;
+		}
 	}
 	
 	
@@ -37,5 +102,12 @@ public class ConfigManager {
 	public static GlobalConfig getConfig()
 	{
 		return config;
+	}
+	
+	public static Element getElement(String key,String value)
+	{
+		Element ele=dc.createElement(key);
+		ele.appendChild(dc.createTextNode(value));
+		return ele;
 	}
 }
