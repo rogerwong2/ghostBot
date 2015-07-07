@@ -36,4 +36,6 @@ public interface User32 extends com.sun.jna.platform.win32.User32 {
 	short GetAsyncKeyState(int key);
 
 	short GetKeyState(int key);
+	
+	HWND GetDesktopWindow();
 }

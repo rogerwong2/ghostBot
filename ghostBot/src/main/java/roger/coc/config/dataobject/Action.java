@@ -4,7 +4,11 @@ import java.util.List;
 import java.util.Map;
 
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+
+import roger.coc.config.ConfigManager;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
@@ -18,6 +22,13 @@ public class Action implements IBuild{
 	private String target;
 	private List<Double> pos=Lists.newArrayList();
 	private Map<String,String> otherDate=Maps.newHashMap();
+	private String payload;
+	public String getPayload() {
+		return payload;
+	}
+	public void setPayload(String payload) {
+		this.payload = payload;
+	}
 	/**
 	 * @return the type
 	 */
@@ -77,6 +88,35 @@ public class Action implements IBuild{
 	 */
 	public void setOtherDate(Map<String, String> otherDate) {
 		this.otherDate = otherDate;
+	}
+	@Override
+	public Element getNode() {
+		return ConfigManager.getElement("action", payload);
+	}
+	@Override
+	public void parseNode(Element node) {
+		payload=node.getNodeValue();
+		String[] strs=payload.split(" ");
+		type=strs[0];
+		if(type.equals(ACTION_TYPE_PUT))
+		{
+			value=Double.valueOf(strs[1]);
+			target=strs[2];
+			//strs[3]==on
+			strs=strs[4].split(",");
+			for(String str:strs)
+			{
+				pos.add(Double.valueOf(str));
+			}
+		}
+		else if(type.equals(ACTION_TYPE_SLEEP))
+		{
+			value=Double.valueOf(strs[1]);
+		}
+		else if(type.equals(ACTION_TYPE_USE))
+		{
+			target=strs[1];
+		}
 	}
 
 }

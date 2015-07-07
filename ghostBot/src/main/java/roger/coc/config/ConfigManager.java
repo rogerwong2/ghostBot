@@ -64,10 +64,10 @@ public class ConfigManager {
               PrintWriter pw = new PrintWriter(new FileOutputStream(url.getPath()+url.getFile()));
               StreamResult result = new StreamResult(pw);
               transformer.transform(source, result);
-              LogUtil.log("生成配置文件成功");
+              LogUtil.log("update config sucess");
           } catch (Exception e)
           {
-        	  LogUtil.log("生成配置文件失败，"+e.getCause());
+        	  LogUtil.log("update config fail"+e.getCause());
           }
           return true;
 	}
@@ -81,7 +81,7 @@ public class ConfigManager {
 	{
 		try
 		{
-	      Document document=db.parse(System.class.getClassLoader().getResourceAsStream(SystemConstant.CONFIG_PATH));//把文件解析成DOCUMENT类
+	      Document document=db.parse(System.class.getClassLoader().getResourceAsStream(SystemConstant.CONFIG_PATH));//鎶婃枃浠惰В鏋愭垚DOCUMENT绫�
 	      GlobalConfig config=new GlobalConfig();
 	      //set name
 	      config.parseNode(document.getDocumentElement()); 

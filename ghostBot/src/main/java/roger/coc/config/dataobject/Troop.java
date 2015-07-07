@@ -35,13 +35,13 @@ public class Troop implements IBuild{
 	}
 	public Element getNode() {
 		Document dc=ConfigManager.db.newDocument();
-		Element root=dc.createElement("common");
-		root.appendChild(ConfigManager.getElement("troop", troop));
+		Element root=dc.createElement("troop");
+		root.appendChild(ConfigManager.getElement("name", troop));
 		root.appendChild(ConfigManager.getElement("num", String.valueOf(num)));
 		return root;
 	}
 	public void parseNode(Element node) {
-		troop=node.getElementsByTagName("troop").item(0).getNodeValue();
+		troop=node.getElementsByTagName("name").item(0).getNodeValue();
 		num=Integer.valueOf(node.getElementsByTagName("num").item(0).getNodeValue());
 	}
 

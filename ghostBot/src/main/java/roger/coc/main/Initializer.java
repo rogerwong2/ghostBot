@@ -1,5 +1,8 @@
 package roger.coc.main;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.net.URL;
 import java.util.Locale;
 
 import com.sun.jna.platform.win32.Advapi32Util;
@@ -11,6 +14,7 @@ import com.sun.jna.platform.win32.WinReg.HKEYByReference;
 import aok.coc.util.w32.User32;
 import roger.coc.awt.MessageBox;
 import roger.coc.constant.SystemConstant;
+import roger.coc.util.ImageUtil;
 import roger.coc.util.LogUtil;
 import roger.coc.util.Win32Util;
 
@@ -29,6 +33,10 @@ public class Initializer {
 			return false;
 		}
 		if(!initializeWin32())
+		{
+			return false;
+		}
+		if(!initializeImageUtil())
 		{
 			return false;
 		}
@@ -88,6 +96,29 @@ public class Initializer {
 		}
 		Win32Util.handler=bsHwnd;
 		
+		return true;
+	}
+	
+	private static boolean initializeImageUtil()
+	{
+		try {
+			ImageUtil.r=new Robot();
+			System.getProperties();
+			String path=System.getProperty("java.library.path");
+			URL url=Initializer.class.getResource("/lib/");
+			String path1=url.getPath().substring(1,url.getPath().length()-1).replace("/", "\\");
+			System.load(path1+"\\liblept168.dll");
+			System.load(path1+"\\tess3Wrapper.dll");
+			if(!path.contains(path1))
+			{
+				path+=";";
+				path+=path1;
+			}
+			System.setProperty("java.library.path", path);
+		} catch (AWTException e) {
+			LogUtil.log(e.toString());
+			return false;
+		}
 		return true;
 	}
 }

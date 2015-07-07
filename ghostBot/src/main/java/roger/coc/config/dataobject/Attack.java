@@ -23,7 +23,7 @@ public class Attack implements IBuild{
 	}
 
 	public void parseNode(Element node) {
-		NodeList nodeList=node.getElementsByTagName("strategy");
+		NodeList nodeList=node.getElementsByTagName("attack");
 		for(int i=0;i<=nodeList.getLength()-1;i++)
 		{
 			Strategy stra=new Strategy();

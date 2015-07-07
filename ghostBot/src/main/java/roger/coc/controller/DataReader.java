@@ -2,8 +2,10 @@ package roger.coc.controller;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
+import java.util.List;
 
 import roger.coc.constant.GameConstant;
+import roger.coc.constant.ImagePath;
 import roger.coc.util.ImageUtil;
 import aok.coc.exception.BotBadBaseException;
 import aok.coc.util.RobotUtils;
@@ -22,6 +24,10 @@ public class DataReader {
 	public static int[] readEnemyResource()
 	{
 		BufferedImage image=ImageUtil.screenShot(GameConstant.ENEMY_LOOT[0], GameConstant.ENEMY_LOOT[1], GameConstant.ENEMY_LOOT[2], GameConstant.ENEMY_LOOT[3]);
+		//System.getProperty("java.library.path");
+		//System.class.getClassLoader().
+	//	ImageUtil.ocr(image);
+		image=ImageUtil.getImageFromFile("D:\\develop\\workspace\\pokubot\\pokubot-master\\pokubot\\src\\test\\resources\\parser_images\\issue11.png");//zort_1420312983010_0.png
 		int[] result=new int[3];
 		result[0]=parseGold(image);
 		result[1]=parseElixir(image);
@@ -35,14 +41,11 @@ public class DataReader {
 		{
 			image=ImageUtil.screenShot(GameConstant.ENEMY_LOOT[0], GameConstant.ENEMY_LOOT[1], GameConstant.ENEMY_LOOT[2], GameConstant.ENEMY_LOOT[3]);
 		}
-		int deCheck = image.getRGB(20, 0);
-
-		if (ImageUtil.compareColor(deCheck,GameConstant.COLOR_DE.getRGB(), 7)) {
-			return true;
-		} else {
-			return false;
+		DataReader.class.getResource(ImagePath.IDLE_ELIXIR);
+		BufferedImage pattern=ImageUtil.getImageFromSource(DataReader.class.getResource(ImagePath.CHECK_DE));
+		List list= ImageUtil.imageMatch(image, pattern, 0.8);
+		return list.size()>0;
 		
-	}
 	}
 	
 	public static int parseGold(BufferedImage image){

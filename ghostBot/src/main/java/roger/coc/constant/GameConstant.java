@@ -11,15 +11,15 @@ public class GameConstant {
 	//===================button====================
 	public static final int[] BTN_TROOP_OPEN=new int[]{40,527};
 	public static final int[] BTN_TROOP_CLOSE=new int[]{733,115};
-	public static final int[] BTN_TROOP_REINFSMENT=new int[]{663,336};
+	public static final int[] BTN_TROOP_REQTROOPS=new int[]{663,336};
 	public static final int[] BTN_TROOP_OVERVIEW=new int[]{155,554};
 	public static final int[][] BTN_TROOP_BRARACK=new int[][]{{256,554},{315,554},{374,554},{433,554}};
 	public static final int[][] BTN_TROOP_DARKBRARACK=new int[][]{{519,554},{583,554}};
 	public static final int[] BTN_TROOP_SPELLFAC=new int[]{665,554};
 	public static final int[] BTN_TROOP_DARKSPELLFAC=new int[]{722,554};
-	public static final int[] BTN_REINFSMENT_CANCEL=new int[]{345,229};
-	public static final int[] BTN_REINFSMENT_CONFIRM=new int[]{523,229};
-	public static final int[] BTN_REINFSMENT_INPUT=new int[]{434,150};
+	public static final int[] BTN_REQTROOPS_CANCEL=new int[]{345,229};
+	public static final int[] BTN_REQTROOPS_CONFIRM=new int[]{523,229};
+	public static final int[] BTN_REQTROOPS_INPUT=new int[]{434,150};
 	public static final int[] BTN_TRAIN_SLOT1=new int[]{227,351};
 	public static final int[] BTN_TRAIN_SLOT2=new int[]{332,351};
 	public static final int[] BTN_TRAIN_SLOT3=new int[]{436,351};
@@ -54,9 +54,13 @@ public class GameConstant {
 	public static final int[] BTN_DARKSPELLFAC_LIGHTING=BTN_TRAIN_SLOT1;
 	public static final int[] BTN_DARKSPELLFAC_HEALING=BTN_TRAIN_SLOT2;
 	public static final int[] BTN_DARKSPELLFAC_RAGE=BTN_TRAIN_SLOT3;
-	public static final int[] BTN_CHAT=new int[]{20,350};
+	public static final int[] BTN_CHAT_OPEN=new int[]{20,350};
+	public static final int[] BTN_CHAT_CLOSE=new int[]{336,350};
+	public static final int[] BTN_CHAT_INPUT=new int[]{81,95};
+	public static final int[] BTN_CHAT_SEND=new int[]{285,96};
 	public static final int[] BTN_ATTACK_OPEN=new int[]{70,610};
 	public static final int[] BTN_ATTACK_FINDMATCH=new int[]{227,507};
+	public static final int[] BTN_ATTACK_FINDNEXTMATCH=new int[]{775,534};
 	public static final int[] BTN_ATTACK_CANCEL=new int[]{823,31};
 	public static final int[] BTN_ATTACK_ENDBATTLE=new int[]{74,539};
 	public static final int[] BTN_ATTACK_ENDBATTLE_OK=new int[]{514,395};
@@ -73,6 +77,7 @@ public class GameConstant {
 	public static final int[] BTN_ATTACK_SLOT9=new int[]{640,619};
 	public static final int[] BTN_ATTACK_SLOT10=new int[]{710,619};
 	public static final int[] BTN_ATTACK_SLOT11=new int[]{780,619};
+	public static final int[][] BTN_ATTACK_SLOTS=new int[][]{BTN_ATTACK_SLOT1,BTN_ATTACK_SLOT2,BTN_ATTACK_SLOT3,BTN_ATTACK_SLOT4,BTN_ATTACK_SLOT5,BTN_ATTACK_SLOT6,BTN_ATTACK_SLOT7,BTN_ATTACK_SLOT8,BTN_ATTACK_SLOT9,BTN_ATTACK_SLOT10,BTN_ATTACK_SLOT11};
 	public static final int[] POS_ATTACK_UP=new int[]{430,43};
 	public static final int[] POS_ATTACK_DOWN=new int[]{430,561};
 	public static final int[] POS_ATTACK_LEFT=new int[]{61,315};
@@ -152,12 +157,13 @@ public class GameConstant {
 	public static final int[][][]	offsets					= new int[10][][];
 	public static final int[][][]	colors					= new int[10][][];
 
-	public static final int[]		widths					= new int[] { 13, 6, 10, 10, 12, 10, 11, 10, 11, 11 };
-	public static final int[] ENEMY_LOOT=new int[]{17, 68, 138, 240};//x1,y1,x2,y2
+	//public static final int[]		widths					= new int[] { 13, 6, 10, 10, 12, 10, 11, 10, 11, 11 };
+	public static final int[]		widths					= new int[] { 0, 5, 8, 0, 0, 8, 10, 10, 0, 0 };
+	public static final int[] ENEMY_LOOT=new int[]{17, 70, 138, 242};//x1,y1,x2,y2
 	public static final int[] LOOT_GOLD_START=new int[]{33,0};
 	public static final int[] LOOT_ELIXIR_START=new int[]{33,29};
 	public static final int[] LOOT_DE_START=new int[]{33,57};
-	public static final int COLOR_SENSITIVE=5;
+	public static final int COLOR_SENSITIVE=20;
 	public static final int DIGIT_TYPE_GOLD=0;
 	public static final int DIGIT_TYPE_ELIXIR=1;
 	public static final int DIGIT_TYPE_DE=2;

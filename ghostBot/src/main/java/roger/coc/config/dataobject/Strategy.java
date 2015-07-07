@@ -6,6 +6,8 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
+import roger.coc.config.ConfigManager;
+
 import com.google.common.collect.Lists;
 
 public class Strategy implements IBuild{
@@ -49,8 +51,18 @@ public class Strategy implements IBuild{
 		this.actionList = actionList;
 	}
 	public Element getNode() {
-		// TODO Auto-generated method stub
-		return null;
+		Document dc=ConfigManager.db.newDocument();
+		Element root=dc.createElement("strategy");
+		root.appendChild(ConfigManager.getElement("name", name));
+		for(Condition condition:conditionList)
+		{
+			root.appendChild(condition.getNode());
+		}
+		for(Action action:actionList)
+		{
+			root.appendChild(action.getNode());
+		}
+		return root;
 	}
 	public void parseNode(Element node) {
 		name=node.getElementsByTagName("name").item(0).getNodeValue();
@@ -59,9 +71,16 @@ public class Strategy implements IBuild{
 		for(int i=0;i<=nl.getLength()-1;i++)
 		{
 			Condition condition=new Condition();
-			//condition.pa
+			condition.parseNode((Element)nl.item(i));
+			conditionList.add(condition);
 		}
-		
+		nl=node.getElementsByTagName("action");
+		for(int i=0;i<=nl.getLength()-1;i++)
+		{
+			Action action=new Action();
+			action.parseNode((Element)nl.item(i));
+			actionList.add(action);
+		}
 	}
 
 }

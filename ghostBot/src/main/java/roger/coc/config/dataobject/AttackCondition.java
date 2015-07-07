@@ -60,7 +60,7 @@ public class AttackCondition implements IBuild{
 	}
 	public Element getNode() {
 		Document dc=ConfigManager.db.newDocument();
-		Element root=dc.createElement("common");
+		Element root=dc.createElement("attack-condition");
 		root.appendChild(ConfigManager.getElement("troopMin",String.valueOf(troopMin)));
 		root.appendChild(ConfigManager.getElement("spellMin", String.valueOf(spellMin)));
 		root.appendChild(ConfigManager.getElement("hasBk", String.valueOf(hasBk)));

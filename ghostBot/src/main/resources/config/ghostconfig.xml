@@ -9,13 +9,13 @@
 	</common>
 	<train>
 		<attack-condition>
-			<troop-minvalue>220</troop-minvalue>
+			<troop-minaction>220</troop-minaction>
 			<has-bk>false</has-bk>
 			<has-aq>false</has-aq>
 			<spell-cap>0</spell-cap>
 		</attack-condition>
 		<type>brarack-loop</type>
-		<brarack-1>
+		<brarack>
 			<troop>
 				<name>barbarian</name>
 				<num>10</num>
@@ -24,14 +24,14 @@
 				<name>archer</name>
 				<num>10</num>
 			</troop>
-		</brarack-1>
-		<brarack-2>
+		</brarack>
+		<brarack>
 			<troop>
 				<name>giant</name>
 				<num>10</num>
 			</troop>
-		</brarack-2>
-		<brarack-3>
+		</brarack>
+		<brarack>
 			<troop>
 				<name>barbarian</name>
 				<num>10</num>
@@ -40,8 +40,8 @@
 				<name>archer</name>
 				<num>10</num>
 			</troop>
-		</brarack-3>
-		<brarack-4>
+		</brarack>
+		<brarack>
 			<troop>
 				<name>barbarian</name>
 				<num>10</num>
@@ -50,11 +50,11 @@
 				<name>archer</name>
 				<num>10</num>
 			</troop>
-		</brarack-4>
-		<darkbrarack-1>	
-		</darkbrarack-1>
-		<darkbrarack-2>	
-		</darkbrarack-2>
+		</brarack>
+		<darkbrarack>	
+		</darkbrarack>
+		<darkbrarack>	
+		</darkbrarack>
 		<spellfac>
 			<spell>
 				<name>lighting</name>
@@ -71,7 +71,6 @@
 	<attack>
 		<strategy>
 			<name>huoyu</name>
-			<conditions>
 				<condition>
 					<type>resource-and</type>
 					<gold>70000</gold>
@@ -91,20 +90,17 @@
 					<darkelixir>500</darkelixir>
 					<sum>150000</sum>
 				</condition>
-			</conditions>
-			<actions>
-				<value>put 0.5 giant on 0,2</value>
-				<value>put 0.5 giant on 11,12</value>
-				<value>sleep 500</value>
-				<value>put 0.5 archer on 0,2</value>
-				<value>put 0.5 archer on 11,12</value>
-				<value>put 1 barbarianking on 0,0</value>
-				<value>put 1 archerqueen on 0,0</value>
-				<value>put -1 barbarian on 0,0</value>
-				<value>sleep 5000</value>
-				<value>use barbarianking</value>
-				<value>use archerqueue</value>
-			</actions>
+				<action>put 0.5 giant on 0,2</action>
+				<action>put 0.5 giant on 11,12</action>
+				<action>sleep 500</action>
+				<action>put 0.5 archer on 0,2</action>
+				<action>put 0.5 archer on 11,12</action>
+				<action>put 1 barbarianking on 0,0</action>
+				<action>put 1 archerqueen on 0,0</action>
+				<action>put -1 barbarian on 0,0</action>
+				<action>sleep 5000</action>
+				<action>use barbarianking</action>
+				<action>use archerqueue</action>
 		</strategy>
 	</attack>
 </ghostconfig>

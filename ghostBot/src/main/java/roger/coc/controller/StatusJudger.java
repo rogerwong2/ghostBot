@@ -14,4 +14,9 @@ public class StatusJudger {
 	{
 		return false;
 	}
+	
+	public static boolean isReadyToAttack()
+	{
+		return false;
+	}
 }
